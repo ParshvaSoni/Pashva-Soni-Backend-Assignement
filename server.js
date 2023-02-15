@@ -7,17 +7,16 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import swaggerJSDoc from "swagger-jsdoc";
-
+import swaggerUi from "swagger-ui-express"
 
 import productRouter from "./Routes/productRoutes.js";
 
-
 const options = {
-  defination: {
+  definition: {
     openapi: "3.0.3", // present supported openapi version
     info: {
       title: "Pashva Soni INeuron Assignement",
-      description: "By this project, I would like to showcase my skills in Backend REST-Full API Development",
+      description: "By this project, I would like to showcase my skills in Backend REST-Full API Development.",
       version: "1.0.0",
       contact: {
         name: "Pashva Soni",
@@ -25,13 +24,21 @@ const options = {
         url: "http://parshvasoni.netlify.app/",
       },
     },
+    servers:[{
+      url:'http://localhost:3000/',
+      description:'Local Server'
+    }]
   },
-  apis:['./Products/productRoutes/']
+  apis:['./Routes/*.js'],
 };
 
+const swaggerSpec = swaggerJSDoc(options);
 dotenv.config()
 const app = express()
 
+// Visit http://localhost:3000/api-docs For Swagger Docs 
+
+app.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 app.use(cookieParser());
 app.use(bodyParser.json()); // parse application/json, basically parse incoming Request Object as a JSON Object 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -62,4 +69,4 @@ app.use("*", (req, res) => {
   res.status(404).json({ success: 0, message: "We didn't find what you are looking for !", data: null });
 });
 
-app.listen(3000, () => { console.log("server started at port") })
+app.listen(3000, () => { console.log("server started at port")})

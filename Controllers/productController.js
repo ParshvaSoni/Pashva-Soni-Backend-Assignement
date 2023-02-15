@@ -54,7 +54,7 @@ export const updateProduct = async (req, res) => {
                 tempproduct.category = req.body.category
                 tempproduct.rating = req.body.rating
                 const result = await tempproduct.save();
-                res.status(200).json({ success: 1, message: "Product Updated successfully.", data: result })
+                res.status(202).json({ success: 1, message: "Product Updated successfully.", data: result })
             }
         }
         else {
