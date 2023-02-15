@@ -1,6 +1,6 @@
 "use strict";
 
-import Product from "./productSchema.js";
+import Product from "../Models/productSchema.js";
 import mongoose from "mongoose";
 
 // get all the products

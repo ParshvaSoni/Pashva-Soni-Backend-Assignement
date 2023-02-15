@@ -1,8 +1,8 @@
 "use strict";
 
 import express from "express";
-import { updateProduct, getAllProduct, createProduct, getProductById, deleteProduct } from "./productController.js";
-import { createProductValidationSchema } from "./productInputValidationSchema.js";
+import { updateProduct, getAllProduct, createProduct, getProductById, deleteProduct } from "../Controllers/productController.js";
+import { createProductValidationSchema } from "../InputValidationSchemas/productInputValidationSchema.js";
 
 export function validateBody(joiSchema) {
     return async (req, res, next) => {

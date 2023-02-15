@@ -6,12 +6,31 @@ import dotenv from "dotenv";
 import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import swaggerJSDoc from "swagger-jsdoc";
 
 
-import productRouter from "./Products/productRoutes.js";
+import productRouter from "./Routes/productRoutes.js";
+
+
+const options = {
+  defination: {
+    openapi: "3.0.3", // present supported openapi version
+    info: {
+      title: "Pashva Soni INeuron Assignement",
+      description: "By this project, I would like to showcase my skills in Backend REST-Full API Development",
+      version: "1.0.0",
+      contact: {
+        name: "Pashva Soni",
+        email: "soniparshva4@gmail.com",
+        url: "http://parshvasoni.netlify.app/",
+      },
+    },
+  },
+  apis:['./Products/productRoutes/']
+};
 
 dotenv.config()
-const app=express()
+const app = express()
 
 app.use(cookieParser());
 app.use(bodyParser.json()); // parse application/json, basically parse incoming Request Object as a JSON Object 
@@ -31,16 +50,16 @@ app.use(cors(corsOption));
 
 
 mongoose.connect("mongodb://localhost/PSAssignment")
-const db=mongoose.connection
-db.on('error',(error)=>{console.error(error)})
-db.once('open',()=>console.log("connected to DB")) // this runs when db is connected 
+const db = mongoose.connection
+db.on('error', (error) => { console.error(error) })
+db.once('open', () => console.log("connected to DB")) // this runs when db is connected 
 
 // list all the routes here,
-app.use('/products',productRouter); // product route
+app.use('/products', productRouter); // product route
 
 // page not found error handling  middleware
 app.use("*", (req, res) => {
-    res.status(404).json({success:0,message:"We didn't find what you are looking for !",data:null});    
+  res.status(404).json({ success: 0, message: "We didn't find what you are looking for !", data: null });
 });
 
-app.listen(3000,()=>{console.log("server started at port")})
+app.listen(3000, () => { console.log("server started at port") })
