@@ -21,7 +21,6 @@ const productSchema =new mongoose.Schema({
     },
     imageURL:{
         type:String,
-        // required:[true,"Product Image URL is required !"],
     },
     price:{
         type:Number,

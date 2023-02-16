@@ -13,7 +13,46 @@ Hi, creating this small assignemnt for showcasing my skill in backend REST-FUll 
 - Using JOI for proper user input validation.
 - Using Mongoose as NO-SQL Database.
 - Documenting using swagger.
+- Testing using mocha, chai, chai-http
 
+<hr>
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/ParshvaSoni/Pashva-Soni-Backend-Assignement.git
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run devStart
+```
+
+Run Test
+
+```bash
+  npm test
+```
+
+
+<hr>
 
 ## API Reference
 
@@ -89,4 +128,15 @@ Hi, creating this small assignemnt for showcasing my skill in backend REST-FUll 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` |  **Required**. Id of product to fetch |
+
+
+## 🚀 About Me
+I'm a developer, who wants his code to be bug free, secure, following latest standards, etc, Inshort Perfect... so it may take some time to develop perfect code but it's worth it...
+
+## Other Links
+ 
+- [GitHub Link](https://github.com/ParshvaSoni)
+- [Project Link](https://parshvasoni.netlify.app/projects.html)
+- [Website Link](https://parshvasoni.netlify.app)
+- [Other Backend Projects](https://parshvasoni.netlify.app/api.html)
 
